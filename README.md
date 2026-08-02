@@ -135,20 +135,9 @@ PM(2,2,2,4,4)=
 $$
 
 Perfect map (length of alphabet = 3, number of submatrix rows = 2, number of submatrix columns = 2):  
-$$
-PM(3,2,2,9,9)=
-\begin{bmatrix}
-0 & 0 & 2 & 0 & 0 & 0 & 2 & 0 & 0 \cr
-0 & 2 & 1 & 1 & 2 & 1 & 1 & 2 & 0 \cr
-2 & 2 & 2 & 1 & 2 & 1 & 2 & 2 & 2 \cr
-2 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 2 \cr
-1 & 2 & 1 & 0 & 2 & 0 & 1 & 2 & 1 \cr
-2 & 0 & 1 & 2 & 0 & 2 & 1 & 0 & 2 \cr
-0 & 1 & 0 & 2 & 1 & 2 & 0 & 1 & 0 \cr
-1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \cr
-1 & 0 & 2 & 2 & 0 & 2 & 2 & 0 & 1 \cr
-\end{bmatrix}
-$$
+<p align="center">
+  <img src="images/PM_3_2_2_9_9_matrix.svg" alt="PM(3,2,2,9,9)" />
+</p>
 
 Note that each of the n^(a*b) possible $a \times b$ subarrays ($a$ rows, $b$ columns) appears exactly once in these $A \times B$ periodic arrays.
 

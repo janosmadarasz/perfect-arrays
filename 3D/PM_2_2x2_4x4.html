@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfect map: alphabet = 2, every 2 x 2 subarray in 4 x 4 array</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+<script type="module">
+import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color("#9bddff");
+
+const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
+camera.position.z = 4;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const canvas = document.createElement("canvas");
+canvas.width = 128;
+canvas.height = 128;
+const ctx = canvas.getContext("2d");
+
+const cols = 4;
+const rows = 4;
+const cellW = canvas.width / cols;
+const cellH = canvas.height / rows;
+const palette = ["#ffffff", "#000000", "#34c759", "#0a84ff", "#bf5af2", "#ff9500"];
+
+let mat = [	
+	[0, 0, 0, 1],
+	[0, 0, 1, 0],
+	[1, 0, 1, 1],
+	[0, 1, 1, 1]
+];
+
+for (let y = 0; y < rows; y++) {
+  for (let x = 0; x < cols; x++) {
+    ctx.fillStyle = palette[ mat[x][y]];
+    ctx.fillRect(x * cellW, y * cellH, cellW, cellH);
+  }
+}
+
+const texture = new THREE.CanvasTexture(canvas);
+texture.colorSpace = THREE.SRGBColorSpace;
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+texture.repeat.set(1, 1);
+
+const geometry = new THREE.TorusGeometry(1.2, 0.45, 32, 128);
+const material = new THREE.MeshStandardMaterial({
+  map: texture,
+  color: 0xffffff
+});
+
+const torus = new THREE.Mesh(geometry, material);
+scene.add(torus);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
+light.position.set(2, 3, 4);
+scene.add(light);
+
+function animate() {
+  requestAnimationFrame(animate);
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.015;
+  renderer.render(scene, camera);
+}
+animate();
+
+addEventListener("resize", () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>

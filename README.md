@@ -230,6 +230,7 @@ All subarrays in the perfect map:
 * [Perfect map (2,3,3,16,32)](3D/PM_2_3x3_16x32.html)
 * [Perfect map (3,2,2,9,9)](3D/PM_3_2x2_9x9.html)
 * [Perfect map (4,2,2,16,16)](3D/PM_4_2x2_16x16.html)
+* [Perfect map (5,2,2,25,25)](3D/PM_5_2x2_25x25.html)
 * [Perfect map (6,2,2,36,36)](3D/PM_6_2x2_36x36.html)
 
 ## Requirements

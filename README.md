@@ -233,6 +233,8 @@ All subarrays in the perfect map:
 * [Perfect map (5,2,2,25,25)](3D/PM_5_2x2_25x25.html)
 * [Perfect map (6,2,2,36,36)](3D/PM_6_2x2_36x36.html)
 
+[Here is an animation of these perfect maps displayed on a website.](https://janosmadarasz.github.io/perfect-arrays/index.html "Animation of some perfect maps")
+
 ## Requirements
 * Python 3.14+
 * [Pillow](https://pypi.org/project/Pillow/)
